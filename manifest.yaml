@@ -224,6 +224,7 @@ spec:
       labels:
         control-plane: registry-creds-controller
     spec:
+      priorityClassName: system-node-critical
       containers:
       - args:
         - --enable-leader-election
@@ -232,7 +233,6 @@ spec:
         image: ghcr.io/alexellis/registry-creds:0.3.1
         imagePullPolicy: IfNotPresent
         name: controller
-        priorityClassName: system-node-critical
         resources:
           limits:
             cpu: 100m
